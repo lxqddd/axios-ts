@@ -1,5 +1,4 @@
-export function sum(a: number, b: number): number {
-  return a + b
-}
+import { Axios } from './core/Axios'
+import { defaults } from './defaults'
 
-sum(1, 2)
+export const axios = new Axios(defaults)
