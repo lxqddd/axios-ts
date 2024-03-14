@@ -1,0 +1,38 @@
+{
+  "name": "@lxqddd/axios-ts",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "使用 typescript 重构 Axios",
+  "author": "lxqddd",
+  "license": "ISC",
+  "keywords": [],
+  "main": "dist/axios.umd.js",
+  "module": "dist/axios.esm.js",
+  "typings": "dist/types/index.d.ts",
+  "scripts": {
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "lint:fix": "eslint . --fix",
+    "build": "rollup -c rollup.config.js"
+  },
+  "dependencies": {
+    "lodash.camelcase": "^4.3.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-typescript2": "^0.36.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "0.40.2",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/lodash.camelcase": "^4.3.9",
+    "@types/rollup-plugin-json": "^3.0.7",
+    "eslint": "^8.57.0",
+    "rollup": "^4.13.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "typedoc": "^0.25.12",
+    "typescript": "^5.4.2",
+    "vitest": "^1.3.1"
+  }
+}
