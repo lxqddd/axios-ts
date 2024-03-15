@@ -1,4 +1,9 @@
-import { Axios } from './core/Axios'
-import { defaults } from './defaults'
+import xhr from './core/xhr'
+import type { AxiosRequestConfig } from './types'
 
-export const axios = new Axios(defaults)
+function axios(config: AxiosRequestConfig) {
+  xhr(config)
+}
+
+console.log('hello world')
+export default axios

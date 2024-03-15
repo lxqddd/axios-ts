@@ -1,0 +1,2 @@
+function o(e){let{data:s=null,method:i="get",url:n}=e,t=new XMLHttpRequest;t.open(i.toUpperCase(),n,!0),t.send(s)}function r(e){o(e)}console.log("hello world");var f=r;export{f as default};
+//# sourceMappingURL=index.js.map

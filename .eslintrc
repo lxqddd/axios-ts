@@ -6,6 +6,10 @@
     "@typescript-eslint/comma-dangle": ["error", "never"],
     "@typescript-eslint/semi": ["error", "never"],
     "no-debugger": "off",
-    "no-restricted-syntax": "off"
+    "no-restricted-syntax": "off",
+    "curly": "off",
+    "@typescript-eslint/brace-style": "off",
+    "n/prefer-global/process": "off",
+    "prefer-const": "off"
   }
 }
