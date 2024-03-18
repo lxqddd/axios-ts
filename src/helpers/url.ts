@@ -11,6 +11,12 @@ function encode(val: string): string {
     .replace(/%5D/gi, ']')
 }
 
+/**
+ * build axios url, append params to url and encode Date and Object
+ * @param url url
+ * @param params axios config params
+ * @returns builded url
+ */
 export function buildURL(url: string, params?: any) {
   if (!params) {
     return url
