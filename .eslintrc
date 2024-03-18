@@ -10,6 +10,6 @@
     "curly": "off",
     "@typescript-eslint/brace-style": "off",
     "n/prefer-global/process": "off",
-    "prefer-const": "off"
+    "prefer-const": "off",
   }
 }
