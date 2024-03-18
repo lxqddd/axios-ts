@@ -1,10 +1,10 @@
 import xhr from './core/xhr'
-import type { AxiosRequestConfig } from './types'
+import type { AxiosRequestConfig, AxiosResponsePromise } from './types'
 import { processConfig } from './utils/processConfig'
 
-function axios(config: AxiosRequestConfig) {
+function axios(config: AxiosRequestConfig): AxiosResponsePromise {
   config = processConfig(config)
-  xhr(config)
+  return xhr(config)
 }
 
 export default axios

@@ -35,8 +35,7 @@ router.get('/base/get', (req, res) => {
 })
 
 router.post('/base/post', (req, res) => {
-  console.log(req)
-  res.json(req.body)
+  res.json(req.body.data)
 })
 
 router.post('/base/buffer', (req, res) => {

@@ -6,6 +6,7 @@ export interface AxiosRequestConfig {
   data?: any
   params?: any
   headers?: { [key: string]: any }
+  responseType?: XMLHttpRequestResponseType
 }
 
 export interface AxiosResponse {
