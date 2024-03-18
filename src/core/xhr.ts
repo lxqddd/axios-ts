@@ -1,4 +1,6 @@
+import { transformResponseData } from '../helpers/transformResponse'
 import type { AxiosRequestConfig, AxiosResponse, AxiosResponsePromise } from '../types'
+import { parseHeaders } from '../utils'
 
 export default function xhr(config: AxiosRequestConfig): AxiosResponsePromise {
   return new Promise((resolve: (value: AxiosResponse) => void, reject: (reason: any) => void) => {
@@ -23,7 +25,7 @@ export default function xhr(config: AxiosRequestConfig): AxiosResponsePromise {
       if (request.readyState !== 4) {
         return
       }
-      const responseHeaders = request.getAllResponseHeaders()
+      const responseHeaders = parseHeaders(request.getAllResponseHeaders())
       const responseData = responseType && responseType !== 'text' ? request.response : request.responseText
       const response: AxiosResponse = {
         data: responseData,
@@ -33,7 +35,7 @@ export default function xhr(config: AxiosRequestConfig): AxiosResponsePromise {
         config,
         request
       }
-      resolve(response)
+      resolve(transformResponseData(response))
     }
     request.send(data)
   })

@@ -78,3 +78,28 @@ export const isDate = kindOfTest('Date')
  * Determines if a value is a plain object
  */
 export const isPlainObject = kindOfTest('Object')
+
+/**
+ * transform headers string to object
+ * @param headers headers string
+ * @returns transformed headers
+ */
+export function parseHeaders(headers: string) {
+  let parsed = Object.create(null)
+  if (!headers) {
+    return parsed
+  }
+  headers.split('\r\n').forEach((line) => {
+    let [key, val] = line.split(':')
+    key = key.trim().toLowerCase()
+    if (!key) {
+      return
+    }
+    if (val) {
+      val = val.trim()
+    }
+    parsed[key] = val
+  })
+
+  return parsed as typeof parsed
+}
