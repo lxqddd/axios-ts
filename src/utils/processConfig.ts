@@ -1,3 +1,4 @@
+import { transformRequest } from '../helpers/data'
 import { buildURL } from '../helpers/url'
 import type { AxiosRequestConfig } from '../types'
 
@@ -8,5 +9,6 @@ export function transformUrl(config: AxiosRequestConfig): string {
 
 export function processConfig(config: AxiosRequestConfig): AxiosRequestConfig {
   config.url = transformUrl(config)
+  config.data = transformRequest(config)
   return config
 }

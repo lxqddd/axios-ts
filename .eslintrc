@@ -11,5 +11,6 @@
     "@typescript-eslint/brace-style": "off",
     "n/prefer-global/process": "off",
     "prefer-const": "off",
+    "n/prefer-global/buffer": "off"
   }
 }

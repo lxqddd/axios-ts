@@ -69,4 +69,12 @@ export function matchAll(regExp: RegExp, str: string): RegExpExecArray[] {
   return arr
 }
 
+/**
+ * Determines if a value is a Date object
+ */
 export const isDate = kindOfTest('Date')
+
+/**
+ * Determines if a value is a plain object
+ */
+export const isPlainObject = kindOfTest('Object')
