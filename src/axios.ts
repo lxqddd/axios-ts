@@ -1,10 +1,16 @@
-import xhr from './core/xhr'
-import type { AxiosRequestConfig, AxiosResponsePromise } from './types'
-import { processConfig } from './utils/processConfig'
+import Axios from './core/Axios'
+import type { AxiosInstance } from './types'
+import { extend } from './utils'
 
-function axios(config: AxiosRequestConfig): AxiosResponsePromise {
-  config = processConfig(config)
-  return xhr(config)
+function createInstance(): AxiosInstance {
+  const context = new Axios()
+  const prototype = Object.getPrototypeOf(context)
+  const instance = Axios.prototype.request.bind(prototype)
+  extend(instance, prototype)
+
+  return instance as AxiosInstance
 }
+
+const axios = createInstance()
 
 export default axios

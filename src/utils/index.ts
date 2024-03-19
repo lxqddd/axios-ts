@@ -103,3 +103,19 @@ export function parseHeaders(headers: string) {
 
   return parsed as typeof parsed
 }
+
+/**
+ * merge object
+ * @param to - merge result
+ * @param from - merge source
+ * @returns - merged result
+ */
+export function extend<T, U>(to: T, from: U): T & U {
+  console.log(from)
+
+  for (const key in from) {
+    console.log(key)
+    ;(to as T & U)[key] = from[key] as any
+  }
+  return to as T & U
+}
