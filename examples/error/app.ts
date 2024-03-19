@@ -1,3 +1,4 @@
+import type { AxiosError } from '../../src/index'
 import axios from '../../src/index'
 
 axios({
@@ -35,6 +36,7 @@ axios({
   timeout: 2000
 }).then((res) => {
   console.log(res)
-}).catch((e) => {
+}).catch((e: AxiosError) => {
   console.log(e.message)
+  console.log(e.code, 'code')
 })
