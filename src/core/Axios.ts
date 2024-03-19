@@ -51,8 +51,13 @@ export default function Axios() {
 
 }
 
-function request(config: AxiosRequestConfig): AxiosResponsePromise {
-  return dispatchRequest(config)
+function request(url: any, config?: AxiosRequestConfig): AxiosResponsePromise {
+  if (typeof url === 'string') {
+    config!.url = url
+  } else {
+    config = url
+  }
+  return dispatchRequest(config!)
 }
 
 function requestMethodWithoutData(method: Method, url: string, config: AxiosRequestConfig): AxiosResponsePromise {

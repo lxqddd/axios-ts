@@ -42,4 +42,5 @@ export interface Axios {
 
 export interface AxiosInstance extends Axios {
   (config: AxiosRequestConfig): AxiosResponsePromise
+  (url: string, config?: AxiosRequestConfig): AxiosResponsePromise
 }

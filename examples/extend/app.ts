@@ -8,15 +8,15 @@ axios({
   }
 })
 
-// console.log(axios.request)
+console.log(axios.request)
 
-// axios.request({
-//   url: '/extend/post',
-//   method: 'post',
-//   data: {
-//     msg: 'hello'
-//   }
-// })
+axios.request({
+  url: '/extend/post',
+  method: 'post',
+  data: {
+    msg: 'hello'
+  }
+})
 
 axios.get('/extend/get')
 
@@ -31,3 +31,18 @@ axios.post('/extend/post', { msg: 'post' })
 axios.put('/extend/put', { msg: 'put' })
 
 axios.patch('/extend/patch', { msg: 'patch' })
+
+axios({
+  url: '/extend/post',
+  method: 'post',
+  data: {
+    msg: 'hi'
+  }
+})
+
+axios('/extend/post', {
+  method: 'post',
+  data: {
+    msg: 'this is url'
+  }
+})
