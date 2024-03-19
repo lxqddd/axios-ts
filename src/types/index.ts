@@ -10,8 +10,8 @@ export interface AxiosRequestConfig {
   timeout?: number
 }
 
-export interface AxiosResponse {
-  data: any
+export interface AxiosResponse<T = any> {
+  data: T
   status: number
   statusText: string
   headers: any
@@ -19,7 +19,7 @@ export interface AxiosResponse {
   request: any
 }
 
-export interface AxiosResponsePromise extends Promise<AxiosResponse> { }
+export interface AxiosResponsePromise<T = any> extends Promise<AxiosResponse<T>> { }
 
 export interface AxiosError extends Error {
   config: AxiosRequestConfig
@@ -29,18 +29,38 @@ export interface AxiosError extends Error {
   isAxiosError: boolean
 }
 
-export interface Axios {
-  request(config: AxiosRequestConfig): AxiosResponsePromise
-  get(url: string, config?: AxiosRequestConfig): AxiosResponsePromise
-  post(url: string, data?: any, config?: AxiosRequestConfig): AxiosResponsePromise
-  delete(url: string, config?: AxiosRequestConfig): AxiosResponsePromise
-  head(url: string, config?: AxiosRequestConfig): AxiosResponsePromise
-  options(url: string, config?: AxiosRequestConfig): AxiosResponsePromise
-  put(url: string, data?: any, config?: AxiosRequestConfig): AxiosResponsePromise
-  patch(url: string, data?: any, config?: AxiosRequestConfig): AxiosResponsePromise
+export interface AxiosConstructor {
+  new(): AxiosInstance
+  prototype: AxiosPrototype
 }
 
-export interface AxiosInstance extends Axios {
-  (config: AxiosRequestConfig): AxiosResponsePromise
-  (url: string, config?: AxiosRequestConfig): AxiosResponsePromise
+interface AxiosPrototype {
+  request<T = any>(config: AxiosRequestConfig): AxiosResponsePromise<T>
+  get<T = any>(url: string, config?: AxiosRequestConfig): AxiosResponsePromise<T>
+  post<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosResponsePromise<T>
+  delete<T = any>(url: string, config?: AxiosRequestConfig): AxiosResponsePromise<T>
+  head<T = any>(url: string, config?: AxiosRequestConfig): AxiosResponsePromise<T>
+  options<T = any>(url: string, config?: AxiosRequestConfig): AxiosResponsePromise<T>
+  put<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosResponsePromise<T>
+  patch<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosResponsePromise<T>
+
+}
+
+export interface AxiosInstance extends AxiosPrototype {
+  <T = any>(config: AxiosRequestConfig): AxiosResponsePromise<T>
+  <T = any>(url: string, config?: AxiosRequestConfig): AxiosResponsePromise<T>
+}
+
+export interface ResponseData<T = any> {
+  code: number
+  result: T
+  message: string
+}
+
+function Person() {
+
+}
+
+Person.prototype.say = function () {
+  console.log('hello')
 }

@@ -1,4 +1,4 @@
-import type { AxiosRequestConfig, AxiosResponsePromise, Method } from '../types'
+import type { AxiosConstructor, AxiosRequestConfig, AxiosResponsePromise, Method } from '../types'
 import dispatchRequest from './dispatchRequest'
 
 // export default class Axios {
@@ -47,9 +47,9 @@ import dispatchRequest from './dispatchRequest'
 //   }
 // }
 
-export default function Axios() {
+const Axios = function () {}
 
-}
+export default (Axios as any) as AxiosConstructor
 
 function request(url: any, config?: AxiosRequestConfig): AxiosResponsePromise {
   if (typeof url === 'string') {
